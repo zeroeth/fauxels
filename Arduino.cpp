@@ -1,8 +1,6 @@
 /* Simplified arduino methods for desktop testing */
 
 #include "Arduino.h"
-#include <stdio.h>
-#include <unistd.h>
 
 
 void pinMode(uint8_t pin, uint8_t mode)
