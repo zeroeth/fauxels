@@ -27,6 +27,6 @@ int digitalRead(uint8_t pin)
 
 void delay(unsigned long milliseconds)
 {
-	printf("[!] delay(%d)\n", milliseconds);
+	printf("[!] delay(%lu)\n", milliseconds);
 	usleep(milliseconds * 1000);
 }

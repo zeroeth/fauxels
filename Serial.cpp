@@ -25,7 +25,7 @@ size_t PrintfSerial::print(unsigned int value)
 
 size_t PrintfSerial::print(long value)
 {
-	printf("[W] Serial.print(%l)\n", value);
+	printf("[W] Serial.print(%ld)\n", value);
 	return 0;
 }
 

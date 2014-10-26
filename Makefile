@@ -1,7 +1,7 @@
 # Simple build script from: http://mrbook.org/tutorials/make/
 # for a more detailed guide: http://felixcrux.com/blog/creating-basic-makefile
 
-CXXFLAGS=-c -Wall
+CXXFLAGS=-Wall
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=fauxels
