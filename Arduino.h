@@ -5,12 +5,12 @@
 
 
 #include <stdlib.h>
-#include "Serial.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+//#include "Serial.h"
 
 #define OUTPUT 1
 #define HIGH 2
