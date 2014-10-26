@@ -10,7 +10,7 @@
 extern "C" {
 #endif
 
-//#include "Serial.h"
+#include "Serial.h"
 
 #define OUTPUT 1
 #define HIGH 2

@@ -6,7 +6,7 @@
 class PrintfSerial
 {
 	public:
-		PrintfSerial();
+		PrintfSerial() {};
 		void begin(unsigned long);
 		size_t print(const char[]);
 		size_t print(int);
@@ -14,7 +14,7 @@ class PrintfSerial
 		size_t print(long);
 		size_t print(unsigned long);
 		size_t print(double);
-}
+};
 
 extern PrintfSerial Serial;
 
