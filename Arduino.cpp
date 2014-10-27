@@ -28,3 +28,12 @@ void delay(unsigned long milliseconds)
 	printf("[!] delay(%lu)\n", milliseconds);
 	usleep(milliseconds * 1000);
 }
+
+
+unsigned long millis(void)
+{
+	struct timeb value;
+	ftime(&value);
+
+	return value.millitm;
+}
