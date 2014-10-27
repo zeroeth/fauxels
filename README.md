@@ -1,7 +1,7 @@
 fauxels
 =======
 
-A wrapper for simulating my pixeltastic themes in the browser (and possibly gl/sdl)
+A wrapper for simulating my https://github.com/zeroeth/pixeltastic themes in the browser (and possibly gl/sdl)
 
 Uses a thin header/implementation of a few functions it expects to find on an Arduino with the Neopixel library.
 
