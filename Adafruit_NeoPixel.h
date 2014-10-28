@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include "Arduino.h"
 
 #define NEO_GRB     0x01
 #define NEO_KHZ800  0x02
@@ -22,6 +23,7 @@ class SoftPixel
 
 	private:
 		uint32_t* pixels;
+		uint16_t  pixel_count;
 };
 
 typedef SoftPixel Adafruit_NeoPixel;
