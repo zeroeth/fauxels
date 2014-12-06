@@ -4,8 +4,7 @@
 #include <emscripten.h>
 #endif
 
-extern void setup();
-extern void loop();
+#include "sketch/sketch.ino"
 
 int main(int argc, char *argv[])
 {

@@ -35,5 +35,5 @@ unsigned long millis(void)
 	struct timeb value;
 	ftime(&value);
 
-	return value.millitm;
+	return (value.time * 1000) + value.millitm;
 }
