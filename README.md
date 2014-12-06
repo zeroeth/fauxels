@@ -10,3 +10,13 @@ Can be compiled with make, or you can generate a new makefile with cmake.
 Supports compiling/running with emscripten.
 
 Feel free to extend however you see fit. Possibly by including the actual Arduino.h and providing your own backing code.
+
+Web Build
+---------
+
+To compile for javascript run `emmake make`, to build for the web run `emmake make web` to generate the index/js.
+
+Optimization and Debugging
+--------------------------
+
+If issues arise, try adding `-profile` and setting `-O0` as documented http://kripken.github.io/emscripten-site/docs/optimizing/Optimizing-Code.html
