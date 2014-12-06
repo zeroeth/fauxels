@@ -24,7 +24,7 @@ How it works
 
 Back story: Normally the Arduino IDE run the `.ino` sketch files through a preprocessor to wrap your loop() and setup() functions in a .cpp file that has a main and includes `arduino.h`
 
-To get fauxels working: Rename your sketch to .cpp and add #include "Arduino.h" to the top of it.
+To get fauxels working: place your sketch in the sketch folder (the project file should be called sketch.ino)
 
 Flow of operation
 -----------------
