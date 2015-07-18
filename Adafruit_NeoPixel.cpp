@@ -57,12 +57,13 @@ uint32_t SoftPixel::getPixelColor(uint16_t position)
 {
 	uint32_t color = pixels[position];
 
-	uint8_t r,g,b;
+	/*
+	 uint8_t r,g,b;
 
 	r = (uint8_t)(color >> 16),
 	g = (uint8_t)(color >>  8),
 	b = (uint8_t)(color >>  0);
-
+	*/
 	//printf("[R] Pixel.getPixelColor(%d) -> [%X, %d, %d, %d]\n", position, color, r, g, b);
 	return color;
 };
