@@ -1,5 +1,6 @@
 # Simple build script from: http://mrbook.org/tutorials/make/
 # for a more detailed guide: http://felixcrux.com/blog/creating-basic-makefile
+.DEFAULT_GOAL := all
 
 CXXFLAGS=-Wall -I. -O3
 SOURCES=$(wildcard *.cpp)
@@ -8,8 +9,11 @@ OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=fauxels
 
 ifdef EMSCRIPTEN
-	EXECUTABLE=fauxels.bc
-	LDFLAGS=--js-library fauxels.js
+	EXECUTABLE+=.bc
+	LDFLAGS+=--js-library fauxels-view.js
+else
+	LDFLAGS+=`pkg-config sdl2 gl --libs`
+	CXXFLAGS+=`pkg-config sdl2 gl --cflags`
 endif
 
 clean:
@@ -20,7 +24,7 @@ clean:
 
 $(EXECUTABLE): $(OBJECTS)
 	@mkdir -p dist
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(OBJECTS) -o dist/$@
+	$(CXX) $(OBJECTS) $(CXXFLAGS) $(LDFLAGS) -o dist/$@
 
 all: $(SOURCES) $(EXECUTABLE)
 
