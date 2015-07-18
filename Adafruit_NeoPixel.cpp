@@ -3,6 +3,7 @@
 extern "C" {
   extern void render_pixel(uint16_t, uint8_t, uint8_t, uint8_t);
   extern void initialize_pixels(uint16_t);
+  extern void show_pixels();
 }
 
 SoftPixel::SoftPixel(uint16_t count, uint8_t pin, uint8_t mode)
@@ -25,6 +26,7 @@ void SoftPixel::begin(void)
 void SoftPixel::show(void)
 {
 	//printf("[!] Pixel.show\n");
+	show_pixels();
 
 	for(int i = 0; i < pixel_count; i++)
 	{
