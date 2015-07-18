@@ -4,6 +4,7 @@
 #include <emscripten.h>
 #endif
 
+#include "Arduino.h"
 #include "sketch/sketch.ino"
 
 int main(int argc, char *argv[])
