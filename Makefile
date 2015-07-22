@@ -12,7 +12,7 @@ ifdef EMSCRIPTEN
 	EXECUTABLE+=.bc
 	LDFLAGS+=--js-library fauxels-view.js
 else
-	LDFLAGS+=`pkg-config sdl2 gl --libs`
+	LDFLAGS+=`pkg-config sdl2 gl --libs` -lSDL2_gfx
 	CXXFLAGS+=`pkg-config sdl2 gl --cflags`
 endif
 
