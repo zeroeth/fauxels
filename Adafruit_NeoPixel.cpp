@@ -73,11 +73,13 @@ void SoftPixel::setPixelColor(uint16_t position, uint32_t color)
 {
 	pixels[position] = color;
 
+	/*
 	uint8_t r,g,b;
 
 	r = (uint8_t)(color >> 16),
 	g = (uint8_t)(color >>  8),
 	b = (uint8_t)(color >>  0);
 
-	//printf("[W] Pixel.setPixelColor(%d, %X) -> [%d,%d,%d]\n", position, color, r, g, b);
+	printf("[W] Pixel.setPixelColor(%d, %X) -> [%d,%d,%d]\n", position, color, r, g, b);
+	*/
 }
