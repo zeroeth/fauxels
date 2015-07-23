@@ -14,8 +14,9 @@ SDL_Renderer* renderer = NULL;
 SDL_Event event;
 
 // List of leds per view and of view sizes
-uint8_t fauxel_leds [256] = {0};
-uint8_t fauxel_views[256] = {0};
+uint8_t fauxel_leds[256]       = {0};
+uint8_t fauxel_view_size [256] = {0};
+uint8_t fauxel_view_start[256] = {0};
 uint8_t fauxel_view_count = 0;
 
 extern "C" {
@@ -24,7 +25,8 @@ extern "C" {
 		// Track instances and assign leds to each view once.
 		// TODO use static lists on the view classes.
 		fauxel_view_count++;
-		fauxel_views[fauxel_view_count] = length;
+		fauxel_view_size [fauxel_view_count] = length;
+		fauxel_view_start[fauxel_view_count] = start;
 
 		for(int i = start; i < start + length; i++)
 		{
@@ -40,12 +42,17 @@ extern "C" {
 		//printf("[0] render_pixel(%u, {%u,%u,%u})\n", index, r, g, b);
 
 		uint8_t view = fauxel_leds[index];
-		uint8_t view_size = fauxel_views[view];
+		uint8_t view_led_count = fauxel_view_size[view];
+		uint8_t view_led_position = index - fauxel_view_start[view];
 
-		uint16_t x = SCREEN_WIDTH / 40 * index;
-		uint16_t y = SCREEN_HEIGHT / 2;
-		uint8_t radius = 15;
+		uint16_t center_x = (SCREEN_WIDTH / fauxel_view_count) * view - (SCREEN_WIDTH / fauxel_view_count / 2) ;
+		uint16_t center_y = SCREEN_HEIGHT / 2;
+		uint16_t x = sin((360.0/view_led_count * view_led_position) * (M_PI/180)) * view_led_count * 5 + center_x;
+		uint16_t y = cos((360.0/view_led_count * view_led_position) * (M_PI/180)) * view_led_count * 5 + center_y;
+		uint8_t radius = 10;
+
 		filledCircleRGBA( renderer, x, y, radius, r, g, b, 0xFF );
+
 		// Alpha might be useful for simulating low color on leds (since its not black).
 		// Could also draw overlapping alpha shapes since leds are individual colors.
 		//SDL_SetRenderDrawColor( renderer, r, g, b, 0xFF );
