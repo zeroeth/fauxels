@@ -41,15 +41,16 @@ extern "C" {
 	{
 		//printf("[0] render_pixel(%u, {%u,%u,%u})\n", index, r, g, b);
 
-		uint8_t view = fauxel_leds[index];
-		uint8_t view_led_count = fauxel_view_size[view];
-		uint8_t view_led_position = index - fauxel_view_start[view];
+		uint16_t view = fauxel_leds[index];
+		uint16_t view_led_count = fauxel_view_size[view];
+		uint16_t view_led_position = index - fauxel_view_start[view];
 
 		uint16_t center_x = (SCREEN_WIDTH / fauxel_view_count) * view - (SCREEN_WIDTH / fauxel_view_count / 2) ;
 		uint16_t center_y = SCREEN_HEIGHT / 2;
 		uint16_t x = sin((360.0/view_led_count * view_led_position) * (M_PI/180)) * view_led_count * 5 + center_x;
 		uint16_t y = cos((360.0/view_led_count * view_led_position) * (M_PI/180)) * view_led_count * 5 + center_y;
-		uint8_t radius = 10;
+		// Could derive from # of views and led count to squeeze into space
+		uint16_t radius = 10;
 
 		filledCircleRGBA( renderer, x, y, radius, r, g, b, 0xFF );
 
